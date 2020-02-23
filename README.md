@@ -1,5 +1,6 @@
-###### SQL
-1. Total Contract Value
+## SQL
+
+###### Total Contract Value
 ```
 select loc.`State_Name`, sum(Total_Contract_Value) as `Total_Contract_Value`, DATE_FORMAT(EndDate,'%Y-%m') as `month`
 from slot_performance_data slot join location_data loc on slot.`City_ID`=loc.`City_ID`
@@ -7,7 +8,7 @@ group by loc.`State_Name`, DATE_FORMAT(EndDate,'%Y-%m')
 ```
 ![sql_1](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/sql_1.png)
 
-2. Second transaction
+###### Second transaction
 ```
 select employer_id, startdate, job_slots, click_market_value from 
 (select @rank := IF(@current_employer = employer_id, @rank + 1, 1) AS employer_rank,
@@ -21,9 +22,9 @@ select employer_id, startdate, job_slots, click_market_value from
 where employer_rank = 2
 ```
 ![sql_2](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/sql_2.png)
-```
 
-###### Metric Design
+
+## Metric Design
 
 The below metrics are used to measure the quality of services.
 
@@ -36,13 +37,13 @@ The below metrics are used to measure the quality of services.
 
 They vary with: 
 
-1. Job_Slots
+###### Job_Slots
 
 Job_Slots only contains 2 values(15, 50). Higher Job_Slot obviously increases daily Applications/app start clicks. While it does not impact conversion rate and applications per slot so much.
 
 ![Job_Slots_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Job_Slots_violin.png)
 
-2. Total_Contract_Value
+###### Total_Contract_Value
 
 In terms of Total_Contract_Value, try to split it into 4 quantile bins for violin plot.
 Higher value bins typically demonstrated more distribution density than lower value bins for applications/app start click both per day and per slot, as well as for conversion rate.
@@ -52,7 +53,7 @@ It shows that generally higher contract values contain higher application rate a
 
 ![Total_Contract_Value_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Total_Contract_Value_violin.png)
 
-3. Click_Market_Value
+###### Click_Market_Value
 
 Similarly, larger Click_Market_Value bins expands distribution density of more daily applications/start clicks.
 ![Click_Market_Value_violin_1](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_1.png)
@@ -69,9 +70,9 @@ More details of metrics design can be fount
 [HERE](https://github.com/telenovelachuan/job_slot_retention/blob/master/metric_design.ipynb)
 
 
-###### Retention Analysis
+## Retention Analysis
 
-1. Factors for retention
+###### Factors for retention
 
 To find out the best factors for predicting retention(Renewal_Flag), first take a look at the Pearson correlation matrix.
 
@@ -103,7 +104,7 @@ Some assumptions here for the classification models:
 - training set and testing set are strongly correlated, though overfitting may happen
 - the target variable, Renewal_Flag, is dependent on all other given variables for prediction
 
-2. Prediction performance
+###### Prediction performance
 
 The random forest achieved .93 accuracy on testing set, with main parameters to be trees, gini criterion, min_samples_leaf retrieved using a self implemented grid search.
 If more time would be available, I would fine tune boosting parameters a little bit, together with cross validation.
@@ -116,7 +117,7 @@ Some other factors I would investigate for retention analysis include:
 
 - Renewal time series, which focuses on seasonalities of renewal behavior.
 
-3. Recommendations for platform algorithm
+###### Recommendations for platform algorithm
 
 - Adaptive bidding
 
