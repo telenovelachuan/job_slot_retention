@@ -39,6 +39,6 @@ Interestingly, it does not help with the conversion rate.
 But there seems that it has a big impact on the cost per applicant.
 ![Click_Market_Value_violin_3](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_3.png)
 
-High Click_Market_Value bins contain significantly lower cost per applicant, which is a good signal - making a big contract would reduce your cost on getting a single applicant!
+High Click_Market_Value bins contain significantly lower cost per applicant, which is a good signal - making a big contract would reduce your average cost on getting a single applicant!
 
 

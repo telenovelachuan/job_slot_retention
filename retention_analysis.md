@@ -7,7 +7,7 @@ I retained all previous metrics as below:
 - daily app start click: Apply_Start_Clicks / days_in_the_contract
 - applications per slot: Applications / Job_Slots
 - app start click per slot: Apply_Start_Clicks / Job_Slots
-- market profit: Click_Market_Value - Total_Contract_Value
+- cost per applicant: Total_Contract_Value / Applications
 
 ###### Factors for retention
 
@@ -17,23 +17,23 @@ To find out the best factors for predicting retention(Renewal_Flag), first take 
 
 The most correlated features with Renewal_Flag are:
 
-- day_diff 0.64
-- market profit 0.13
+- day diff 0.64
+- cost per applicant -0.2
+- Click_Market_Value 0.12
 - start_click_per_slot 0.12
-- start_year -0.11
 
 It seems the duration of the contract plays a vital role in renewal. Then to use decision tree for feature importance.
 Below is the calculated feature importance by a random forest that contains 500 trees.
 
 ![rf_feat_imp](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/feature_importance_rf.png)
 
-Day_diff(contract duration in days) largely outperforms all other features, with end_month, Click_Market_Value and start month following after.
+Day_diff(contract duration in days) largely outperforms all other features, with Click_Market_Value, end_month and start month following after.
 
 Boosting method is also tried. The feature importance calculated by a Gradient Boosting forest is shown below.
 
 ![gb_feat_imp](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/feature_importance_gb.png)
 
-Top features are generally the same, except that the importance of day_diff increased from .49 to .69.
+Top features are generally the same, except that the importance of day_diff increased from .38 to .67.
 
 Some assumptions here for the classification models:
 
