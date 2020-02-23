@@ -7,38 +7,38 @@ The below metrics are used to measure the quality of services.
 - daily app start click: Apply_Start_Clicks / days_in_the_contract
 - applications per slot: Applications / Job_Slots
 - app start click per slot: Apply_Start_Clicks / Job_Slots
-- market profit: Click_Market_Value - Total_Contract_Value
+- cost per applicant: Total_Contract_Value / Applications
+
+They vary with: 
 
 ###### Job_Slots
 
-Job_Slots only contains 2 values(15, 50). Applications/app start clicks per day grows with Job_Slot, while applications/app start clicks per slot decreases when slots grow to 50.
-![Job_Slots_scatter](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Job_Slots_scatter.png)
+Job_Slots only contains 2 values(15, 50). Higher Job_Slot obviously increases daily Applications/app start clicks. While it does not impact conversion rate and applications per slot so much.
 
-Besides, the violin plots show that when slots increase to 50, there's a distribution rise for daily application/app start clicks.
 ![Job_Slots_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Job_Slots_violin.png)
 
 ###### Total_Contract_Value
 
-In terms of Total_Contract_Value, in the range of [0, 1000], there's an increase in daily applications and applications per slot distributions.
-Since higher value contracts typically contains more slots. While the performance seems to decline between [2000, 3000], especially for applications per slot.
-![Total_Contract_Value_scatter](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Total_Contract_Value_scatter.png)
-
-From the violin plot below, Total_Contract_Value is splitted into 4 quantile bins.
-
-![Total_Contract_Value_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Total_Contract_Value_violin.png)
-
+In terms of Total_Contract_Value, try to split it into 4 quantile bins for violin plot.
 Higher value bins typically demonstrated more distribution density than lower value bins for applications/app start click both per day and per slot, as well as for conversion rate.
 It shows that generally higher contract values contain higher application rate and conversion rate.
 
+![Total_Contract_Value_scatter](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Total_Contract_Value_scatter.png)
+
+![Total_Contract_Value_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Total_Contract_Value_violin.png)
 
 ###### Click_Market_Value
 
-It's obvious that market profit linearly grows with Click_Market_Value
-![Click_Market_Value_scatter](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_scatter.png)
+Similarly, larger Click_Market_Value bins expands distribution density of more daily applications/start clicks.
+![Click_Market_Value_violin_1](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_1.png)
 
-And higher Click_Market_Value bins correspond to more distribution density in daily application/app start click, application per slot and conversion rate.
-![Click_Market_Value_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin.png)
+Interestingly, it does not help with the conversion rate.
+![Click_Market_Value_violin_2](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_2.png)
 
 
+But there seems that it has a big impact on the cost per applicant.
+![Click_Market_Value_violin_3](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_3.png)
+
+High Click_Market_Value bins contain significantly lower cost per applicant, which is a good signal - making a big contract would reduce your cost on getting a single applicant!
 
 
