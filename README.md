@@ -55,13 +55,13 @@ It shows that generally higher contract values contain higher application rate a
 
 ###### Click_Market_Value
 
-Similarly, larger Click_Market_Value bins expands distribution density of more daily applications/start clicks.
+Similarly, larger Click_Market_Value bins expand distribution density of more daily applications/start clicks.
 ![Click_Market_Value_violin_1](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_1.png)
 
 Interestingly, it does not help with the conversion rate.
 ![Click_Market_Value_violin_2](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_2.png)
 
-But there seems that it has a big impact on the cost per applicant.
+But it seems to have a big impact on the cost per applicant.
 ![Click_Market_Value_violin_3](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_3.png)
 
 High Click_Market_Value bins contain significantly lower cost per applicant, which is a good signal - making a big contract would reduce your average cost on getting a single applicant!
@@ -85,8 +85,9 @@ The most correlated features with Renewal_Flag are:
 - Click_Market_Value 0.12
 - start_click_per_slot 0.12
 
-It seems the duration of the contract plays a vital role in renewal. Then to use decision tree for feature importance.
-Below is the calculated feature importance by a random forest that contains 500 trees.
+It seems the duration of the contract plays a vital role in renewal.
+
+Then try to use decision tree for feature importance. Below is the calculated feature importance by a random forest that contains 500 trees.
 
 ![rf_feat_imp](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/feature_importance_rf.png)
 
@@ -111,7 +112,7 @@ If more time would be available, I would fine tune boosting parameters a little 
 
 Some other factors I would investigate for retention analysis include:
 
-- Usage of job slots, such as ratio of Job_Listings / Job_Slots, and also the trend of job slot change by employers.
+- Usage of job slots, such as ratio of Job_Listings / Job_Slots, and also the trend of job slot change of different employers.
 
 - Number of candidates hired. This is a metric to compare candidate quality with other platforms, and a factor that would influence customers renewal decisions.
 
@@ -122,6 +123,7 @@ Some other factors I would investigate for retention analysis include:
 - Adaptive bidding
 
 It could be observed in the dataset that, non-renewal employers typically distribute more densely in high cost-per-applicant values than those who renewed.
+
 ![nonrn_cost_per_applicant](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/nonrn_cost_per_applicant.png)
 
 It could be something like a lose-lose: few applicants apply for job -> low application performance -> bids increase -> stop renewal.
@@ -129,17 +131,19 @@ Thus for low performance customers, maybe we should take a look at the reason be
 
 ![violin_job_listing_cost_per_applicant](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/violin_job_listing_cost_per_applicant.png)
 
-High Job_Listings bins would generally decrease cost per applicant, and that's the merit of job slots.
+High Job_Listings bins would generally reduce cost per applicant, and that's the merit of job slots.
 Recommending customers to take full advantage of these platform features would hopefully increase their performance without additional cost.
-And it's more reasonable to increase the bids for low performance from other reasons, such as poor job description, attractiveness of industry, location, company, etc. 
+And it's more reasonable to increase the bids for low performance caused from other sources, such as poor job description, lack of attractiveness in industry, location, company, etc. 
 
 - Other statistical insights
 
-For those with Renewal_Flag of 1, they seem to present a far more distribution density in longer contract duration and more job slots.
+For those with Renewal_Flag of 1, they seem to present longer contract durations and more job slots.
+
 ![nonrn_day_diff](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/nonrn_day_diff.png)
 
-Thus persuading them into trying more job slots would hopefully increase their market value and application/app start click rate.
 ![nonrn_Job_Slots](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/nonrn_Job_Slots.png)
+
+Thus persuading them into trying more job slots would hopefully increase their market value and application/app start click rate.
 
 More details of retention analysis can be fount 
 [HERE](https://github.com/telenovelachuan/job_slot_retention/blob/master/retention_analysis.ipynb)
