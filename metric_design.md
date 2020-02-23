@@ -7,6 +7,7 @@ The below metrics are used to measure the quality of services.
 - daily app start click: Apply_Start_Clicks / days_in_the_contract
 - applications per slot: Applications / Job_Slots
 - app start click per slot: Apply_Start_Clicks / Job_Slots
+- market profit: Click_Market_Value - Total_Contract_Value
 
 ###### Job_Slots
 
