@@ -23,11 +23,20 @@ Since higher value contracts typically contains more slots. While the performanc
 ![Total_Contract_Value_scatter](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Total_Contract_Value_scatter.png)
 
 From the violin plot below, Total_Contract_Value is splitted into 4 quantile bins.
+
+![Total_Contract_Value_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Total_Contract_Value_violin.png)
+
 Higher value bins typically demonstrated more distribution density than lower value bins for applications/app start click both per day and per slot, as well as for conversion rate.
 It shows that generally higher contract values contain higher application rate and conversion rate.
 
+
 ###### Click_Market_Value
 
+It's obvious that market profit linearly grows with Click_Market_Value
+![Click_Market_Value_scatter](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_scatter.png)
+
+And higher Click_Market_Value bins correspond to more distribution density in daily application/app start click, application per slot and conversion rate.
+![Click_Market_Value_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin.png)
 
 
 
