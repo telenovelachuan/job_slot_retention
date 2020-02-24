@@ -43,7 +43,8 @@ Some assumptions here for the classification models:
 
 ###### Prediction performance
 
-The random forest achieved . accuracy on testing set, with 
+The random forest achieved .93 accuracy on testing set, with main parameters to be trees, gini criterion, min_samples_leaf retrieved using a self implemented grid search.
+If more time would be available, I would fine tune boosting parameters a little bit, together with cross validation.
 
 Some other factors I would investigate for retention analysis include:
 
