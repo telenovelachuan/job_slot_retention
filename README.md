@@ -1,6 +1,6 @@
 ## SQL
 
-###### Total Contract Value
+###### 1. Total Contract Value
 ```
 select loc.`State_Name`, sum(Total_Contract_Value) as `Total_Contract_Value`, DATE_FORMAT(EndDate,'%Y-%m') as `month`
 from slot_performance_data slot join location_data loc on slot.`City_ID`=loc.`City_ID`
@@ -8,7 +8,7 @@ group by loc.`State_Name`, DATE_FORMAT(EndDate,'%Y-%m')
 ```
 ![sql_1](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/sql_1.png)
 
-###### Second transaction
+###### 2. Second transaction
 ```
 select employer_id, startdate, job_slots, click_market_value from 
 (select @rank := IF(@current_employer = employer_id, @rank + 1, 1) AS employer_rank,
@@ -37,13 +37,13 @@ The below metrics are used to measure the quality of services.
 
 They vary with: 
 
-###### Job_Slots
+###### 1. Job_Slots
 
 Job_Slots only contains 2 values(15, 50). Higher Job_Slot obviously increases daily Applications/app start clicks. While it does not impact conversion rate and applications per slot so much.
 
 ![Job_Slots_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Job_Slots_violin.png)
 
-###### Total_Contract_Value
+###### 2. Total_Contract_Value
 
 In terms of Total_Contract_Value, try to split it into 4 quantile bins for violin plot.
 Higher value bins typically demonstrated more distribution density than lower value bins for applications/app start click both per day and per slot, as well as for conversion rate.
@@ -53,7 +53,7 @@ It shows that generally higher contract values contain higher application rate a
 
 ![Total_Contract_Value_violin](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Total_Contract_Value_violin.png)
 
-###### Click_Market_Value
+###### 3. Click_Market_Value
 
 Similarly, larger Click_Market_Value bins expand distribution density of more daily applications/start clicks.
 ![Click_Market_Value_violin_1](https://github.com/telenovelachuan/job_slot_retention/blob/master/reports/figures/Click_Market_Value_violin_1.png)
